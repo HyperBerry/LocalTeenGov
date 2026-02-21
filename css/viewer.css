@@ -1,87 +1,93 @@
+:root {
+    --primary-blue: #003366;
+    --justice-gold: #f6c03d;
+    --text-dark: #333333;
+    --bg-light: #ffffff;
+}
+
+body {
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
 .viewer-container {
-    width: 90%;
+    width: 95%;
     max-width: 1100px;
     margin: 2rem auto;
-    background: white;
-    padding: 2rem;
+    background: var(--bg-light);
+    padding: 3rem;
     box-shadow: 0 0 20px rgba(0,0,0,0.1);
-    min-height: 80vh;
+    min-height: 100vh;
 }
 
 #viewExhibit {
     color: var(--primary-blue);
-    font-family: Georgia, serif;
-    font-size: 2rem;
+    font-family: "Georgia", serif;
+    font-size: 2.2rem;
     margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 #viewTitle {
-    color: #666;
-    font-size: 1.4rem;
-    font-weight: normal;
-    margin-bottom: 2rem;
+    font-family: "Georgia", serif;
+    color: var(--text-dark);
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    border-bottom: 3px solid var(--justice-gold);
+    padding-bottom: 10px;
+}
+
+#viewContent {
+    font-family: "Georgia", serif;
+    line-height: 1.8;
+    font-size: 1.15rem;
+    color: var(--text-dark);
+    white-space: pre-wrap;
+    background: #fdfdfd;
+    padding: 25px;
+    border-left: 5px solid var(--primary-blue);
+    margin: 2rem 0 4rem 0;
 }
 
 #fileDisplayArea {
     width: 100%;
+    background: transparent;
+    border: none;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+}
+
+.file-wrapper {
+    width: 100%;
     display: flex;
     justify-content: center;
-    align-items: center;
-    margin-bottom: 2rem;
 }
 
-#fileDisplayArea img {
+.file-wrapper img, 
+.file-wrapper iframe {
     max-width: 100%;
     height: auto;
-    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    background: white;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    border: 1px solid #ddd;
+    display: block;
 }
 
-#fileDisplayArea iframe {
-    border: none;
-    background: white;
+.file-wrapper iframe {
+    width: 100%;
+    min-height: 800px;
 }
 
 hr {
     border: 0;
     border-top: 1px solid #eee;
-    margin: 2rem 0;
-}
-
-#viewContent {
-    line-height: 1.6;
-    font-size: 1.1rem;
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 1rem;
-    background: #fdfdfd;
-}
-
-.file-wrapper {
-    margin-bottom: 40px;
-    border-bottom: 2px solid #eee;
-    padding-bottom: 20px;
-}
-.file-wrapper:last-child { border: none; }
-
-.document-body {
-    font-size: 1.1rem;
-    white-space: pre-wrap;
-    background: #fdfdfd;
-    padding: 20px;
-    border-left: 5px solid #eee;
-    margin-bottom: 40px;
-}
-
-.vertical-stack {
-    display: flex;
-    flex-direction: column;
-    gap: 40px;
-    align-items: center;
-}
-
-.file-wrapper img, .file-wrapper iframe {
-    max-width: 100%;
-    height: auto;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    border: 1px solid #ddd;
+    margin: 3rem 0;
 }
