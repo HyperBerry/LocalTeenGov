@@ -1,4 +1,3 @@
-// js/viewer.js
 async function loadViewer() {
     const params = new URLSearchParams(window.location.search);
     const docId = params.get('id');

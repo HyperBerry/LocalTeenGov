@@ -7,9 +7,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     let allDocs = [];
 
-    // 1. Load data and setup the Dataset Filter
     async function loadData() {
-        // Fetch all documents from your Supabase table
         const { data, error } = await _supabase
             .from('documents')
             .select('*');
@@ -21,7 +19,6 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         allDocs = data || [];
 
-        // Populate the Dataset Filter dropdown with unique names from the DB
         const uniqueDatasets = [...new Set(allDocs.map(d => d.dataset))].sort();
         uniqueDatasets.forEach(ds => {
             if (ds) {
@@ -33,7 +30,6 @@ document.addEventListener('DOMContentLoaded', async () => {
         renderResults();
     }
 
-    // 2. Requirement #4 & #5: Search and Filtering Logic
     function renderResults() {
         const query = searchInput.value.toLowerCase().trim();
         const selectedDs = datasetFilter.value;
@@ -41,13 +37,11 @@ document.addEventListener('DOMContentLoaded', async () => {
         resultsContainer.innerHTML = "";
 
         const filtered = allDocs.filter(doc => {
-            // Search across ID, Title, and Content body
             const matchesSearch =
                 doc.content.toLowerCase().includes(query) ||
                 doc.title.toLowerCase().includes(query) ||
                 doc.exhibit_id.toLowerCase().includes(query);
 
-            // Filter by the selected Dataset
             const matchesDataset = (selectedDs === "all" || doc.dataset === selectedDs);
 
             return matchesSearch && matchesDataset;
@@ -57,7 +51,6 @@ document.addEventListener('DOMContentLoaded', async () => {
             const div = document.createElement('div');
             div.className = "result-item";
 
-            // Requirement: Highlight the Exhibit ID if it matches the search query
             let displayID = doc.exhibit_id;
             let displayTitle = doc.title;
 
@@ -67,14 +60,12 @@ document.addEventListener('DOMContentLoaded', async () => {
                 displayTitle = displayTitle.replace(regex, `<span class="highlight">$1</span>`);
             }
 
-            // Create a preview snippet of the body text
             let preview = doc.content.substring(0, 250) + "...";
             if (query && query.length > 2) {
                 const regex = new RegExp(`(${query})`, 'gi');
                 preview = preview.replace(regex, `<span class="highlight">$1</span>`);
             }
 
-            // High-contrast, structured layout for the results
             div.innerHTML = `
                 <div class="result-header">
                     <a href="viewer.html?id=${doc.id}" class="exhibit-link">${displayID}</a>
@@ -86,15 +77,22 @@ document.addEventListener('DOMContentLoaded', async () => {
             resultsContainer.appendChild(div);
         });
 
-        resultsInfo.innerText = `Showing ${filtered.length} results from the Rexstein Library.`;
+        const totalResults = filtered.length;
+        let resultsText = "";
+
+        if (totalResults === 0) {
+            resultsText = "Showing 0 to 0 of 0 Results.";
+        } else {
+            resultsText = `Showing 1 to ${totalResults} of ${totalResults} Results.`;
+        }
+
+        resultsInfo.innerText = resultsText;
     }
 
-    // Event Listeners
     searchBtn.onclick = renderResults;
     datasetFilter.onchange = renderResults;
-    searchInput.ononinput = renderResults; // Real-time search update
+    searchInput.ononinput = renderResults;
 
-    // Support "Enter" key for searching
     searchInput.onkeyup = (e) => { if (e.key === "Enter") renderResults(); };
 
     loadData();

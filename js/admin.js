@@ -1,4 +1,3 @@
-// js/admin.js
 document.addEventListener('DOMContentLoaded', async () => {
     const uploadForm = document.getElementById('uploadForm');
     const datasetSelect = document.getElementById('dataset');
