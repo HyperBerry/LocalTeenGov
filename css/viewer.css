@@ -25,7 +25,6 @@
 
 #fileDisplayArea {
     width: 100%;
-    background: #ffffff; /* Dark background like a PDF viewer */
     display: flex;
     justify-content: center;
     align-items: center;
