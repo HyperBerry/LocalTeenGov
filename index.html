@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Local Teen Government</title>
+    <link rel="stylesheet" href="css/shared.css" />
+    <link rel="stylesheet" href="css/index.css" />
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  </head>
+  <body>
+    <header>
+      <div class="header-container">
+        <h1>Search Full Library</h1>
+        <a href="admin.html" class="btn-primary" style="text-decoration: none"
+          >Add Document</a
+        >
+      </div>
+    </header>
+    <main>
+      <h2 class="page-title">Search Full Rexstein Library</h2>
+      <div class="title-divider"></div>
+      <section class="search-section">
+        <input type="text" id="searchInput" placeholder="Search keywords..." />
+        <button id="searchBtn" class="btn-primary search-btn">Search</button>
+        <select id="datasetFilter" class="filter-dropdown">
+          <option value="all">All DataSets</option>
+        </select>
+      </section>
+      <section class="results-section">
+        <p id="resultsInfo" class="results-info">
+          Showing 0 to 0 of 0 Results.
+        </p>
+        <div id="resultsContainer"></div>
+        <div id="pagination" class="pagination"></div>
+        <p class="search-note">
+          <strong>Note on Search Functionality:</strong> Due to technical
+          limitations and the format of certain materials (e.g., handwritten
+          text), portions of these documents may not be electronically
+          searchable or may produce unreliable search results.
+        </p>
+      </section>
+    </main>
+    <script src="js/db.js"></script>
+    <script src="js/index.js"></script>
+  </body>
+</html>

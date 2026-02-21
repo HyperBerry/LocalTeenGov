@@ -1,0 +1,91 @@
+/* Styling for the Individual File Viewer Page */
+.viewer-container {
+    width: 90%;
+    max-width: 1100px;
+    margin: 2rem auto;
+    background: white;
+    padding: 2rem;
+    box-shadow: 0 0 20px rgba(0,0,0,0.1);
+    min-height: 80vh;
+}
+
+#viewExhibit {
+    color: var(--primary-blue);
+    font-family: Georgia, serif;
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+#viewTitle {
+    color: #666;
+    font-size: 1.4rem;
+    font-weight: normal;
+    margin-bottom: 2rem;
+}
+
+#fileDisplayArea {
+    width: 100%;
+    background: #333; /* Dark background like a PDF viewer */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2rem;
+    border: 1px solid #000;
+}
+
+#fileDisplayArea img {
+    max-width: 100%;
+    height: auto;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+#fileDisplayArea iframe {
+    border: none;
+    background: white;
+}
+
+hr {
+    border: 0;
+    border-top: 1px solid #eee;
+    margin: 2rem 0;
+}
+
+#viewContent {
+    line-height: 1.6;
+    font-size: 1.1rem;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 1rem;
+    background: #fdfdfd;
+}
+
+.file-wrapper {
+    margin-bottom: 40px;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 20px;
+}
+.file-wrapper:last-child { border: none; }
+
+.document-body {
+    font-size: 1.1rem;
+    white-space: pre-wrap;
+    background: #fdfdfd;
+    padding: 20px;
+    border-left: 5px solid #eee;
+    margin-bottom: 40px;
+}
+
+/* Requirement: Force vertical stacking regardless of size */
+.vertical-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    align-items: center; /* Center-aligns documents */
+}
+
+.file-wrapper img, .file-wrapper iframe {
+    max-width: 100%;
+    height: auto;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    border: 1px solid #ddd;
+}

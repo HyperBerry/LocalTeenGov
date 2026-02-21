@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Document Viewer | Rexstein Library</title>
+    <link rel="stylesheet" href="css/shared.css" />
+    <link rel="stylesheet" href="css/viewer.css" />
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  </head>
+  <body>
+    <header>
+      <div class="header-container">
+        <h1 id="viewExhibit">Loading...</h1>
+        <a href="index.html" class="btn-secondary" style="text-decoration: none"
+          >Back to Library</a
+        >
+      </div>
+    </header>
+    <main class="viewer-container">
+      <h2 id="viewTitle" class="justice-heading"></h2>
+
+      <div id="viewContent" class="document-body"></div>
+
+      <hr class="section-divider" />
+
+      <div id="fileDisplayArea" class="vertical-stack"></div>
+    </main>
+
+    <script src="js/db.js"></script>
+    <script src="js/viewer.js"></script>
+  </body>
+</html>

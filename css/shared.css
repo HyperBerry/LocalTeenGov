@@ -1,0 +1,23 @@
+:root { 
+    --primary-blue: #003366; 
+    --justice-gold: #f6c03d;
+    --text-dark: #333333;
+}
+body { 
+    font-family: "Source Sans Pro", Arial, sans-serif; 
+    line-height: 1.6;
+    color: var(--text-dark);
+}
+.justice-heading {
+    font-family: Georgia, serif;
+    font-size: 2.2rem;
+    color: var(--primary-blue);
+    border-bottom: 4px solid var(--justice-gold);
+    padding-bottom: 10px;
+    margin-bottom: 30px;
+}
+header { background: var(--primary-blue); color: white; padding: 1rem; }
+.header-container { width: 90%; margin: auto; display: flex; justify-content: space-between; align-items: center; }
+.btn-primary { background: #00509e; color: white; border: none; padding: 10px 20px; cursor: pointer; font-weight: bold; }
+.btn-secondary { background: #e0e0e0; color: #333; padding: 10px 20px; border: 1px solid #ccc; cursor: pointer; }
+.hidden { display: none; }

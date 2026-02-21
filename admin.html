@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Upload Portal | Rexstein Library</title>
+    <link rel="stylesheet" href="css/shared.css" />
+    <link rel="stylesheet" href="css/admin.css" />
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  </head>
+  <body>
+    <header>
+      <div class="header-container">
+        <h1>Upload Portal</h1>
+        <a href="index.html" class="btn-secondary" style="text-decoration: none"
+          >Back to Search</a
+        >
+      </div>
+    </header>
+
+    <main>
+      <div class="form-container">
+        <h2>Add New Document</h2>
+        <form id="uploadForm">
+          <div class="form-group">
+            <label for="dataset">Dataset Designation</label>
+            <select id="dataset" required>
+              <option value="NEW">+ Create New DataSet</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="docTitle">Document Title</label>
+            <input
+              type="text"
+              id="docTitle"
+              placeholder="e.g. Evidence Summary"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="docContent">Searchable Content (Body Text)</label>
+            <textarea
+              id="docContent"
+              placeholder="Paste the text content here for indexing..."
+              required
+            ></textarea>
+          </div>
+
+          <div class="form-group">
+            <label for="fileUpload">Attach Files (JPG, PNG, PDF)</label>
+            <p style="font-size: 0.8rem; color: #666; margin-top: -5px">
+              You can select multiple files at once.
+            </p>
+            <input type="file" id="fileUpload" multiple required />
+          </div>
+
+          <button type="submit" id="submitBtn" class="btn-primary">
+            Upload to Repository
+          </button>
+        </form>
+
+        <div
+          id="status"
+          class="hidden"
+          style="
+            margin-top: 20px;
+            padding: 15px;
+            text-align: center;
+            border-radius: 2px;
+          "
+        >
+          <p id="statusText"></p>
+          <div
+            id="progressBar"
+            style="
+              width: 0%;
+              height: 5px;
+              background: var(--primary-blue);
+              margin-top: 10px;
+              transition: width 0.3s;
+            "
+          ></div>
+        </div>
+      </div>
+    </main>
+
+    <script src="js/db.js"></script>
+    <script src="js/admin.js"></script>
+  </body>
+</html>
