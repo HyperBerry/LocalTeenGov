@@ -4,7 +4,15 @@ document.addEventListener('DOMContentLoaded', async () => {
     const status = document.getElementById('status');
     const statusText = document.getElementById('statusText');
 
-    // 1. Load existing DataSets into the dropdown
+
+    (function () {
+        const accessKey = prompt("Rexstein Library | Restricted Access\nPlease enter Admin Key:");
+
+        if (accessKey !== "rexsteinFilesPswd1!") {
+            alert("Invalid Key. Returning to Search.");
+            window.location.href = "index.html";
+        }
+    })();
     async function loadDatasets() {
         const { data } = await _supabase.from('documents').select('dataset');
         if (data) {

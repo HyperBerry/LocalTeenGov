@@ -25,12 +25,11 @@
 
 #fileDisplayArea {
     width: 100%;
-    background: #333; /* Dark background like a PDF viewer */
+    background: #ffffff; /* Dark background like a PDF viewer */
     display: flex;
     justify-content: center;
     align-items: center;
     margin-bottom: 2rem;
-    border: 1px solid #000;
 }
 
 #fileDisplayArea img {
